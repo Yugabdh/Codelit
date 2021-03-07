@@ -1,5 +1,18 @@
 .navbar {
+    font-weight: 400;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.2);
     .navbar-toggler {
         border: none;
+    }
+    .container-fluid {
+        margin-right: 40px;
+        margin-left: 40px;
+        .navbar-brand {
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .navbar-collapse {
+            font-family: 'Lato', sans-serif;
+        }
     }
 }
