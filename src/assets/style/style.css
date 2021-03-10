@@ -22,6 +22,10 @@
   background-color: #353B43;
 }
 
+main {
+  margin-top: 70px;
+}
+
 .section-title h2 {
   color: #ffffff;
   font-size: 48px;
@@ -201,6 +205,12 @@ ol {
   font-family: 'Lato', sans-serif;
 }
 
+.navbar .btn-custom {
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 header.herohead {
   background: url("../img/jpg/hero-banner.jpg") no-repeat top center;
   background-size: cover;
@@ -209,6 +219,7 @@ header.herohead {
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
+  text-transform: uppercase;
 }
 
 header.herohead h1 {
