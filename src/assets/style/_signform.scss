@@ -1,0 +1,80 @@
+.signform {
+    .container.holder {
+        .no-gutters {
+            margin-right: 0;
+            margin-left: 0;
+
+            > .col,
+            > [class*="col-"] {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+
+        .bg-register-image {
+            background-image: url(../img/svg/default-monochrome.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            -webkit-background-size: 75% 75%;
+            -moz-background-size: 75% 75%;
+            -o-background-size: 75% 75%;
+            background-size: 75% 75%;
+            background-color: $secondaryBg;
+        }
+
+        .form-container {
+            background-color: $primaryBg;
+            color: white;
+            form {
+                input {
+                    width: 100%;
+                    height: 48px;
+                    border-radius: 2px;
+                    background: #353b43;
+                    border: none;
+                    padding-left: 20px;
+                    margin-bottom: 30px;
+                    font-size: 16px;
+                    color: #a6a6a6;
+                    -webkit-transition: all 0.3s;
+                    -webkit-transition: 0.3s;
+                    -o-transition: 0.3s;
+                    transition: 0.3s;
+                    border: 1px solid #353b43;
+                }
+                input::-webkit-input-placeholder {
+                    font-weight: 600;
+                }
+                input::-moz-placeholder {
+                    font-weight: 600;
+                }
+                input:-ms-input-placeholder {
+                    font-weight: 600;
+                }
+                input::-ms-input-placeholder {
+                    font-weight: 600;
+                }
+                input::placeholder {
+                    font-weight: 600;
+                }
+                input:focus {
+                    background: #3d3d3d;
+                    color: #a6a6a6;
+                    font-weight: 600;
+                }
+                .btn {
+                    font-weight: 700;
+                }
+                .btn-custom {
+                    border-radius: 2px;
+                    box-shadow: none;
+                    background-color: $highlightedText;
+                    &:hover {
+                        background-color: $highlightedTextprimary;
+                    }
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

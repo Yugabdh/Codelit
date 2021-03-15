@@ -1,0 +1,20 @@
+.modal-success {
+    background-color: rgba(75, 181, 67, 0.5);
+}
+
+.modal-danger {
+    background-color: rgba(220, 53, 69, 0.5);
+}
+
+.alert-modal {
+    color: #ffffff;
+    .modal-dialog {
+        .modal-title {
+            font-weight: 700;
+        }
+    }
+    .btn-custom {
+        background-color: transparent;
+        font-weight: 700;
+    }
+}
