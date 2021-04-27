@@ -1,0 +1,38 @@
+.btn {
+    color: $white;
+    font-weight: 700;
+    border-radius: $border-round;
+    -webkit-border-radius: $border-round;
+    -moz-border-radius: $border-round;
+    -ms-border-radius: $border-round;
+    -o-border-radius: $border-round;
+    padding: 16px 34px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 0;
+    transition: transform 350ms ease, background-color 350ms ease, -webkit-transform 350ms ease;
+    -webkit-transition: transform 350ms ease, background-color 350ms ease, -webkit-transform 350ms ease;
+    -moz-transition: transform 350ms ease, background-color 350ms ease, -webkit-transform 350ms ease;
+    -ms-transition: transform 350ms ease, background-color 350ms ease, -webkit-transform 350ms ease;
+    -o-transition: transform 350ms ease, background-color 350ms ease, -webkit-transform 350ms ease;
+    &:hover, &:focus  {
+        box-shadow: none;
+        background-color: $primary-dark;
+        transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -moz-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        -o-transform: scale(0.95);
+    }
+}
+
+.btn-primary {
+    background-color: $primary;
+    box-shadow: none;
+}
+
+.btn-danger {
+    &:hover, &:focus {
+        background-color: #c82333;
+    }
+}

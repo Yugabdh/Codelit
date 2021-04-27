@@ -1,15 +1,22 @@
-import { applyMiddleware, createStore } from "redux";
-import thunkMiddleware from "redux-thunk";
+import { createStore, applyMiddleware, compose } from "redux";
+import rootReducer from "./redux/reducers";
 
-import { verifyAuth } from "./actions/";
-import rootReducer from "./reducers";
+import thunk from 'redux-thunk';
+import { getFirebase } from 'react-redux-firebase';
 
-export default function configureStore(persistedState) {
+function configureStore(initialState) {
+  const middlewares = [
+    thunk.withExtraArgument(getFirebase)
+  ]
   const store = createStore(
     rootReducer,
-    persistedState,
-    applyMiddleware(thunkMiddleware)
+    initialState,
+    compose(
+      applyMiddleware(...middlewares),
+      // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
   );
-  store.dispatch(verifyAuth());
   return store;
 }
+
+export default configureStore;

@@ -1,36 +1,50 @@
-$primaryBg: #242930;
-$secondaryBg: #353B43;
-$lintedText: #77FF33;
-$highlightedText: #57CBCC;
-$highlightedTextprimary: #007bff;
-$secondaryText: #AFB4BF;
-$white: #ffffff;
-$nav: #1d2024;
-.text-green {
-    color: #77ff33;
-}
+$cyan: #17a2b8;
+$white: #fff;
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
 
-.text-blue {
-    color: $highlightedText;
-}
+$gray: #6c757d;
+$gray-dark: #343a40;
 
-.text-grey {
-    color: $secondaryText;
-}
+$primary: #5445FF;
+$primary-dark: #2d21b2;
+$secondary: #857AFF;
+$success: #40c057;
+$info: #2f8be6;
+$warning: #f77e17;
+$danger: #f55252;
+$light: #dbdee5;
+$dark: #1a051d;
+
+
+$bg: #1C1B29;
+$bg-sec: #272735;
+$bg-sec-sec: #39394B;
+
+$border-color: #767887;
+$border-color-focus: #eff0f6;
+$font-normal: #e1e1e7;
 
 .backgroud-dark-0 {
-    background-color: $nav;
+    background-color: $bg;
 }
 
 .backgroud-dark-1 {
-    background-color: $primaryBg;
+    background-color: $bg-sec;
 }
 
 .backgroud-dark-2 {
-    background-color: $secondaryBg;
+    background-color: $bg-sec-sec;
 }
 
 .backgroud-gradient {
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(87,203,204,1) 100%);
+    background: linear-gradient(90deg, $bg 0%, $bg-sec 100%);
 }

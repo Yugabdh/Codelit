@@ -7,15 +7,15 @@ import InfoSideImage from '../components/InfoSideImage';
 import certificate from '../assets/img/svg/certificate.svg';
 import learning from '../assets/img/svg/learn.svg';
 import test from '../assets/img/svg/quiz.svg';
-import homeAboutImg from '../assets/img/jpg/side.jpg';
+import homeAboutImg from '../assets/img/png/side-img.png';
 
 
 
 function IndexPage() {
   const homeAbout = {
-    backgroud: 'backgroud-dark-2',
-    heading: 'WELCOME TO CODELIT',
-    shortDetail: 'We develope Applications, Tools, and WebApps',
+    backgroud: 'backgroud-dark-0',
+    heading: 'Our mission is to make you a better coder',
+    shortDetail: 'Learn. Test. Sharpen your Skills.',
     longDetail: `This app is created by TechnoGeekx. Learn coding anywhere, anytime you want
     in simple language. Learn and test your skills at a sametime.
     I invite you to explore my site, learn about my passions, and explore what excites 
@@ -28,8 +28,8 @@ function IndexPage() {
     heading: 'Benefits',
     headingColor: 'text-white',
     shortDetail: 'Why is it so great?',
-    shortDetailColor: 'text-grey',
-    backgroud: 'backgroud-dark-1',
+    backgroud: 'backgroud-dark-0',
+    cardbg: 'backgroud-dark-2',
     cards: [
       {
         id: 1,
