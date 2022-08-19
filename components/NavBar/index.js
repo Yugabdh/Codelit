@@ -16,10 +16,9 @@ function classNames(...classes) {
 
 export default function NavBar() {
   const [user, setUser] = useState(false);
-  console.log(user);
 
   return (
-    <Disclosure as="nav" className="bg-bg-dark">
+    <Disclosure as="nav" className="bg-bg-dark fixed top-0 z-10 w-full">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -76,7 +75,7 @@ export default function NavBar() {
                 ) : (
                   <a
                     href="#"
-                    className="transition ease delay-150 bg-primary-medium hover:bg-primary hover:scale-95 md:transition-all text-white font-semibold py-3 px-4 rounded"
+                    className="transition ease delay-150 bg-primary-200 hover:bg-primary-300 hover:scale-95 md:transition-all text-white font-semibold py-3 px-4 rounded"
                   >
                     Register
                   </a>

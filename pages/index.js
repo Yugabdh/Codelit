@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Head from "next/head";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import NavBar from "../components/NavBar";
+import HeroSection from "../components/HeroSection";
 
 export default function Home() {
   useEffect(() => {
@@ -22,9 +23,9 @@ export default function Home() {
       </Head>
       <>
         <NavBar />
+        <HeroSection />
       </>
       <main>
-        <h1 className="text-3xl font-bold underline">Hello Codelit</h1>
       </main>
 
       <footer>

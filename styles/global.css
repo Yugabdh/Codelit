@@ -8,3 +8,6 @@
     @apply font-poppins font-normal;
   }
 }
+.hero-img {
+  background-image: url("/hero-header.png");
+}
