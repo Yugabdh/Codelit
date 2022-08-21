@@ -1,6 +1,6 @@
 const FeatureCard = ({ feature }) => {
   return (
-    <div key={feature.name} className="relative">
+    <div className="relative">
       <dt>
         <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-200 text-white">
           <feature.icon className="h-6 w-6" aria-hidden="true" />

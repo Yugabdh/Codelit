@@ -3,7 +3,7 @@ const HeroHeader = () => {
     <header className="flex items-center justify-center h-screen bg-fixed bg-center bg-cover hero-img">
       <div className="h-screen flex items-center justify-center">
         <div className="mx-2 text-center md:w-9/12 px-4">
-          <h1 className="text-gray-100 font-bold antialiased uppercase font-poppins text-4xl xs:text-5xl md:text-6xl">
+          <h1 className="text-gray-100 font-bold antialiased uppercase font-poppins text-3xl xs:text-5xl md:text-6xl">
             Learn to code at your pace at your place and be that chad developer
             you always wished to be!
           </h1>

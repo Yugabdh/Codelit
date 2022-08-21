@@ -18,7 +18,7 @@ export default function NavBar() {
   const [user, setUser] = useState(false);
 
   return (
-    <Disclosure as="nav" className="bg-bg-dark fixed top-0 z-10 w-full">
+    <Disclosure as="nav" className="bg-bg-dark fixed top-0 z-10 w-full drop-shadow-md">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
