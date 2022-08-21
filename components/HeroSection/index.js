@@ -1,6 +1,6 @@
 const HeroHeader = () => {
   return (
-    <header className="flex items-center justify-center h-screen mb-12 bg-fixed bg-center bg-cover hero-img">
+    <header className="flex items-center justify-center h-screen bg-fixed bg-center bg-cover hero-img">
       <div className="h-screen flex items-center justify-center">
         <div className="mx-2 text-center md:w-9/12 px-4">
           <h1 className="text-gray-100 font-bold antialiased uppercase font-poppins text-4xl xs:text-5xl md:text-6xl">
@@ -13,7 +13,7 @@ const HeroHeader = () => {
                 href="#"
                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-200 hover:bg-primary-300 md:py-4 md:text-lg md:px-10"
               >
-                Get started
+                Start Learning Now
               </a>
             </div>
             <div className="mt-3 sm:mt-0 sm:ml-3">

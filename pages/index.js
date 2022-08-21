@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
+import SectionWithHeading from "../components/SectionWithHeading";
+import FeatureSection from "../components/FeatureSection";
 
 export default function Home() {
   useEffect(() => {
@@ -26,6 +28,7 @@ export default function Home() {
         <HeroSection />
       </>
       <main>
+        <FeatureSection heading="Benefits" subtitle="Why is it so great?" />
       </main>
 
       <footer>
