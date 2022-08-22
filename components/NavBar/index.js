@@ -1,13 +1,14 @@
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import ProfileDropDown from "./ProfileDropDown";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Login", href: "/login" },
+  { name: "Register", href: "/register" },
 ];
 
 function classNames(...classes) {
@@ -16,9 +17,13 @@ function classNames(...classes) {
 
 export default function NavBar() {
   const [user, setUser] = useState(false);
+  const router = useRouter();
 
   return (
-    <Disclosure as="nav" className="bg-bg-dark fixed top-0 z-10 w-full drop-shadow-md">
+    <Disclosure
+      as="nav"
+      className="bg-bg-dark fixed top-0 z-10 w-full drop-shadow-md"
+    >
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -36,34 +41,40 @@ export default function NavBar() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center text-white font-semibold">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="/logo.png"
-                    alt="Codelit logo"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="/logo.png"
-                    alt="Codelit logo"
-                  />{" "}
-                  Codelit
+                  <Link href="/">
+                    <a className=" flex items-center">
+                      <>
+                        <img
+                          className="inline lg:hidden h-8 w-auto"
+                          src="/logo.png"
+                          alt="Codelit logo"
+                        />
+                        <img
+                          className="hidden lg:inline h-8 w-auto"
+                          src="/logo.png"
+                          alt="Codelit logo"
+                        />{" "}
+                        <span>Codelit</span>
+                      </>
+                    </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-bg-medium text-white"
-                            : "text-gray-300 hover:bg-bg-faint hover:text-white",
-                          "px-3 py-2 rounded-md text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </a>
+                    {navigation.map((item, index) => (
+                      <Link key={index} href={item.href}>
+                        <a
+                          className={classNames(
+                            router.pathname === item.href
+                              ? "bg-bg-medium text-white"
+                              : "text-gray-300 hover:bg-bg-faint hover:text-white",
+                            "px-3 py-2 rounded-md text-sm font-medium"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -73,12 +84,11 @@ export default function NavBar() {
                 {user ? (
                   <ProfileDropDown />
                 ) : (
-                  <a
-                    href="#"
-                    className="transition ease delay-150 bg-primary-200 hover:bg-primary-300 hover:scale-95 md:transition-all text-white font-semibold py-1 px-1 md:py-3 md:px-4 rounded"
-                  >
-                    Register
-                  </a>
+                  <Link href="/register">
+                    <a className="transition ease delay-150 bg-primary-200 hover:bg-primary-300 hover:scale-95 md:transition-all text-white font-semibold py-1 px-1 md:py-3 md:px-4 rounded">
+                      Register
+                    </a>
+                  </Link>
                 )}
               </div>
             </div>
@@ -87,19 +97,18 @@ export default function NavBar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-bg-medium text-white"
-                      : "text-gray-300 hover:bg-bg-faint hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
+                <Disclosure.Button key={item.name} as={Link} href={item.href}>
+                  <a
+                    aria-current={item.current ? "page" : undefined}
+                    className={classNames(
+                      item.current
+                        ? "bg-bg-medium text-white"
+                        : "text-gray-300 hover:bg-bg-faint hover:text-white",
+                      "block px-3 py-2 rounded-md text-base font-medium"
+                    )}
+                  >
+                    {item.name}
+                  </a>
                 </Disclosure.Button>
               ))}
             </div>
