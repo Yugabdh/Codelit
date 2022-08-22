@@ -5,8 +5,6 @@ import Head from "next/head";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import FeatureSection from "../components/FeatureSection";
 import SectionWithContentAndAside from "../components/SectionWithContentAndAside";
@@ -26,7 +24,6 @@ export default function Home() {
         <title>Codelit | Learn to code</title>
       </Head>
       <>
-        <NavBar />
         <HeroSection />
       </>
       <main>
@@ -47,7 +44,6 @@ export default function Home() {
           </div>}
         />
       </main>
-      <Footer />
     </div>
   );
 }

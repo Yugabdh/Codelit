@@ -75,7 +75,7 @@ export default function NavBar() {
                 ) : (
                   <a
                     href="#"
-                    className="transition ease delay-150 bg-primary-200 hover:bg-primary-300 hover:scale-95 md:transition-all text-white font-semibold py-3 px-4 rounded"
+                    className="transition ease delay-150 bg-primary-200 hover:bg-primary-300 hover:scale-95 md:transition-all text-white font-semibold py-1 px-1 md:py-3 md:px-4 rounded"
                   >
                     Register
                   </a>
