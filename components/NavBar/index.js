@@ -85,7 +85,7 @@ export default function NavBar() {
                   <ProfileDropDown />
                 ) : (
                   <Link href="/register">
-                    <a className="transition ease delay-150 bg-primary-200 hover:bg-primary-300 hover:scale-95 md:transition-all text-white font-semibold py-1 px-1 md:py-3 md:px-4 rounded">
+                    <a className="transition-all ease bg-primary-200 hover:bg-primary-400 hover:scale-95 text-white font-semibold py-1 px-1 md:py-3 md:px-4 rounded">
                       Register
                     </a>
                   </Link>
