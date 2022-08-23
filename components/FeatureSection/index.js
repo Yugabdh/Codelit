@@ -6,27 +6,27 @@ import { SiFuturelearn } from "react-icons/si";
 
 const features = [
   {
-    name: "Competitive exchange rates",
+    name: "Get proof",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Earn a certificate to validate your newly acquired skills. Post it on social for others to see.",
     icon: FaCertificate,
   },
   {
-    name: "Competitive exchange rates",
+    name: "Step-by-step and tailored for you",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Go step-by-step through our unique courses and learn at your speed.",
     icon: SiFuturelearn,
   },
   {
-    name: "Competitive exchange rates",
+    name: "Quizzes and more",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Assess what you've learned with in-lesson quizzes, and gradually advance your skills",
     icon: FaRegQuestionCircle,
   },
   {
-    name: "Competitive exchange rates",
+    name: "Atomic modules",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Course content divided into small modules helps you to learn quickly",
     icon: FaAtom,
   },
 ];
