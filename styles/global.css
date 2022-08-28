@@ -7,6 +7,15 @@
   body {
     @apply font-poppins font-normal;
   }
+
+  ::-moz-selection {
+    /* Code for Firefox */
+    @apply text-white bg-primary-100;
+  }
+
+  ::selection {
+    @apply text-white bg-primary-100;
+  }
 }
 .hero-img {
   @apply bg-bg-dark;

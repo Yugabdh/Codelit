@@ -7,6 +7,20 @@ const RegistrationForm = () => {
       <input type="hidden" name="remember" defaultValue="true" />
       <div className="rounded-md shadow-sm">
         <div>
+          <label htmlFor="fullName" className="text-gray-50">
+            Full name
+          </label>
+          <input
+            id="fullName"
+            name="fullName"
+            type="fullName"
+            required
+            className="appearance-none rounded relative block w-full px-3 py-2 bg-bg-faint mt-1 text-gray-50 focus:outline-none border border-bg-faint focus:border-gray-50 focus:z-10 sm:text-sm"
+          />
+        </div>
+      </div>
+      <div className="rounded-md shadow-sm">
+        <div>
           <label htmlFor="email-address" className="text-gray-50">
             Email address
           </label>
@@ -29,7 +43,6 @@ const RegistrationForm = () => {
             id="password"
             name="password"
             type="password"
-            autoComplete="current-password"
             required
             className="appearance-none rounded relative block w-full px-3 py-2 bg-bg-faint mt-1 text-gray-50 focus:outline-none border border-bg-faint focus:border-gray-50 focus:z-10 sm:text-sm"
           />
