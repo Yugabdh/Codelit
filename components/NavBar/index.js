@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -44,16 +45,22 @@ export default function NavBar() {
                   <Link href="/">
                     <a className=" flex items-center">
                       <>
-                        <img
-                          className="inline lg:hidden h-8 w-auto"
-                          src="/logo.png"
-                          alt="Codelit logo"
-                        />
-                        <img
-                          className="hidden lg:inline h-8 w-auto"
-                          src="/logo.png"
-                          alt="Codelit logo"
-                        />{" "}
+                        <div className="inline lg:hidden h-8 w-auto">
+                          <Image
+                            height={32}
+                            width={32}
+                            src="/logo.png"
+                            alt="Codelit logo"
+                          />
+                        </div>
+                        <div className="hidden lg:inline h-8 w-auto">
+                          <Image
+                            height={32}
+                            width={32}
+                            src="/logo.png"
+                            alt="Codelit logo"
+                          />
+                        </div>{" "}
                         <span>Codelit</span>
                       </>
                     </a>
