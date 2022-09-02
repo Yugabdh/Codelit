@@ -77,7 +77,7 @@ export default function NavBar() {
                               : "text-gray-300 hover:bg-bg-faint hover:text-white",
                             "px-3 py-2 rounded-md text-sm font-medium"
                           )}
-                          aria-current={item.current ? "page" : undefined}
+                          aria-current={router.pathname === item.href ? "page" : undefined}
                         >
                           {item.name}
                         </a>
@@ -106,9 +106,9 @@ export default function NavBar() {
               {navigation.map((item) => (
                 <Disclosure.Button key={item.name} as={Link} href={item.href}>
                   <a
-                    aria-current={item.current ? "page" : undefined}
+                    aria-current={router.pathname === item.href ? "page" : undefined}
                     className={classNames(
-                      item.current
+                      router.pathname === item.href
                         ? "bg-bg-medium text-white"
                         : "text-gray-300 hover:bg-bg-faint hover:text-white",
                       "block px-3 py-2 rounded-md text-base font-medium"
