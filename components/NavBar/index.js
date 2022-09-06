@@ -1,15 +1,24 @@
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { useSelector } from "react-redux";
+import { isLoaded, isEmpty } from "react-redux-firebase";
+
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import ProfileDropDown from "./ProfileDropDown";
+import VisibleIfLoggedIn from "../ChangeVisiblityByAuthStatus/VisibleIfLoggedIn";
+import VisibleIfLoggedOut from "../ChangeVisiblityByAuthStatus/VisibleIfLoggedOut";
 
-const navigation = [
+const navigationNullAuth = [
   { name: "Login", href: "/login" },
   { name: "Register", href: "/register" },
+];
+
+const navigationAuth = [
+  { name: "Dashboard", href: "/Dashboard" },
+  { name: "Courses", href: "/courses" },
 ];
 
 function classNames(...classes) {
@@ -17,9 +26,8 @@ function classNames(...classes) {
 }
 
 export default function NavBar() {
-  const [user, setUser] = useState(false);
   const router = useRouter();
-
+  const auth = useSelector((state) => state.firebase.auth);
   return (
     <Disclosure
       as="nav"
@@ -68,27 +76,50 @@ export default function NavBar() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item, index) => (
-                      <Link key={index} href={item.href}>
-                        <a
-                          className={classNames(
-                            router.pathname === item.href
-                              ? "bg-bg-medium text-white"
-                              : "text-gray-300 hover:bg-bg-faint hover:text-white",
-                            "px-3 py-2 rounded-md text-sm font-medium"
-                          )}
-                          aria-current={router.pathname === item.href ? "page" : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      </Link>
-                    ))}
+                    <VisibleIfLoggedOut>
+                      {navigationNullAuth.map((item, index) => (
+                        <Link key={index} href={item.href}>
+                          <a
+                            className={classNames(
+                              router.pathname === item.href
+                                ? "bg-bg-medium text-white"
+                                : "text-gray-300 hover:bg-bg-faint hover:text-white",
+                              "px-3 py-2 rounded-md text-sm font-medium"
+                            )}
+                            aria-current={
+                              router.pathname === item.href ? "page" : undefined
+                            }
+                          >
+                            {item.name}
+                          </a>
+                        </Link>
+                      ))}
+                    </VisibleIfLoggedOut>
+                    <VisibleIfLoggedIn>
+                      {navigationAuth.map((item, index) => (
+                        <Link key={index} href={item.href}>
+                          <a
+                            className={classNames(
+                              router.pathname === item.href
+                                ? "bg-bg-medium text-white"
+                                : "text-gray-300 hover:bg-bg-faint hover:text-white",
+                              "px-3 py-2 rounded-md text-sm font-medium"
+                            )}
+                            aria-current={
+                              router.pathname === item.href ? "page" : undefined
+                            }
+                          >
+                            {item.name}
+                          </a>
+                        </Link>
+                      ))}
+                    </VisibleIfLoggedIn>
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* TODO: Profile dropdown logic */}
-                {user ? (
+                {isLoaded(auth) && !isEmpty(auth) ? (
                   <ProfileDropDown />
                 ) : (
                   <Link href="/register">
@@ -103,21 +134,44 @@ export default function NavBar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Disclosure.Button key={item.name} as={Link} href={item.href}>
-                  <a
-                    aria-current={router.pathname === item.href ? "page" : undefined}
-                    className={classNames(
-                      router.pathname === item.href
-                        ? "bg-bg-medium text-white"
-                        : "text-gray-300 hover:bg-bg-faint hover:text-white",
-                      "block px-3 py-2 rounded-md text-base font-medium"
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                </Disclosure.Button>
-              ))}
+              <VisibleIfLoggedOut>
+                {navigationNullAuth.map((item) => (
+                  <Disclosure.Button key={item.name} as={Link} href={item.href}>
+                    <a
+                      aria-current={
+                        router.pathname === item.href ? "page" : undefined
+                      }
+                      className={classNames(
+                        router.pathname === item.href
+                          ? "bg-bg-medium text-white"
+                          : "text-gray-300 hover:bg-bg-faint hover:text-white",
+                        "block px-3 py-2 rounded-md text-base font-medium"
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  </Disclosure.Button>
+                ))}
+              </VisibleIfLoggedOut>
+              <VisibleIfLoggedIn>
+                {navigationAuth.map((item) => (
+                  <Disclosure.Button key={item.name} as={Link} href={item.href}>
+                    <a
+                      aria-current={
+                        router.pathname === item.href ? "page" : undefined
+                      }
+                      className={classNames(
+                        router.pathname === item.href
+                          ? "bg-bg-medium text-white"
+                          : "text-gray-300 hover:bg-bg-faint hover:text-white",
+                        "block px-3 py-2 rounded-md text-base font-medium"
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  </Disclosure.Button>
+                ))}
+              </VisibleIfLoggedIn>
             </div>
           </Disclosure.Panel>
         </>

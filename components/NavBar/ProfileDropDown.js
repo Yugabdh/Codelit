@@ -1,12 +1,21 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
+import { useSelector } from "react-redux";
+import { useFirebase } from "react-redux-firebase";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const ProfileDropDown = () => {
+  const firebase = useFirebase();
+  const signOut = async () => {
+    const auth = firebase.auth();
+    console.log(auth);
+    auth.signOut();
+  };
+
   return (
     <Menu as="div" className="ml-3 relative">
       <div>
@@ -16,7 +25,7 @@ const ProfileDropDown = () => {
             height={32}
             width={32}
             className="h-8 w-8 rounded-full"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            src="/user.png"
             alt="profile photo"
           />
         </Menu.Button>
@@ -46,28 +55,16 @@ const ProfileDropDown = () => {
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
-              <a
+              <button
                 href="#"
                 className={classNames(
                   active ? "bg-bg-faint" : "",
-                  "block px-4 py-2 text-sm text-white"
+                  "block px-4 py-2 text-sm text-white w-full text-left"
                 )}
-              >
-                Settings
-              </a>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <a
-                href="#"
-                className={classNames(
-                  active ? "bg-bg-faint" : "",
-                  "block px-4 py-2 text-sm text-white"
-                )}
+                onClick={() => signOut()}
               >
                 Sign out
-              </a>
+              </button>
             )}
           </Menu.Item>
         </Menu.Items>

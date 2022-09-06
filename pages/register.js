@@ -1,12 +1,23 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useFirebase } from "react-redux-firebase";
 
-import { BsGoogle, BsGithub } from "react-icons/bs";
+import { BsGoogle } from "react-icons/bs";
 
 import RegistrationForm from "../components/RegistrationForm";
 
 const Register = () => {
+  const firebase = useFirebase();
+  function loginWithGoogle() {
+    const result = firebase
+      .login({ provider: "google", type: "redirect" })
+      .catch((err) => {
+        console.error(err);
+      })
+    return result;
+  }
+
   return (
     <div>
       <Head>
@@ -41,17 +52,10 @@ const Register = () => {
                 <button
                   type="submit"
                   className="group relative w-full flex justify-center py-2 px-4 border border-primary-400 text-xl font-medium rounded text-white bg-transparent hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease focus:ring-indigo-500"
+                  onClick={() => loginWithGoogle()}
                 >
                   <span className="sr-only">Sign in with Google</span>
                   <BsGoogle />
-                </button>
-
-                <button
-                  type="submit"
-                  className="group relative w-full flex justify-center py-2 px-4 border border-primary-400 text-xl font-medium rounded text-white bg-transparent hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease focus:ring-indigo-500"
-                >
-                  <span className="sr-only">Sign in with Github</span>
-                  <BsGithub />
                 </button>
               </div>
               <div className="flex justify-center pb-4">

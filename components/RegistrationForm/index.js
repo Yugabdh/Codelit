@@ -1,17 +1,17 @@
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-
 import InputField from "../InputField";
 import useForm from "../../hooks/useForm";
 import validate from "./validationRules";
 
-import auth from "../../firebase/firebase";
+import { useFirebase } from "react-redux-firebase";
 
 const RegistrationForm = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+  const firebase = useFirebase();
 
   const register = () => {
-    // TODO: write register logic
+    let email = values.email.trim();
+    let password = values.password.trim();
+    let username = values.fullName.trim();
+    firebase.createUser({ email, password }, { username, email });
     setIsSubmitting(false);
   };
 
@@ -42,7 +42,6 @@ const RegistrationForm = () => {
           handleChange={handleChange}
           required={true}
           placeholder=""
-          disabled={loading}
           error={errors.fullName}
         />
       </div>
@@ -56,7 +55,6 @@ const RegistrationForm = () => {
           handleChange={handleChange}
           autoComplete="email"
           required={true}
-          disabled={loading}
           error={errors.email}
         />
       </div>
@@ -70,7 +68,6 @@ const RegistrationForm = () => {
           handleChange={handleChange}
           autoComplete="password"
           required={true}
-          disabled={loading}
           error={errors.password}
         />
       </div>
@@ -84,7 +81,6 @@ const RegistrationForm = () => {
           handleChange={handleChange}
           autoComplete="repassword"
           required={true}
-          disabled={loading}
           error={errors.repassword}
         />
       </div>
@@ -92,9 +88,9 @@ const RegistrationForm = () => {
       <div>
         <button
           type="submit"
-          disabled={isSubmitting || loading}
+          disabled={isSubmitting}
           className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded text-white bg-primary-200 hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease focus:ring-indigo-500 ${
-            isSubmitting || loading ? "bg-gray-500 hover:bg-gray-500" : ""
+            isSubmitting ? "bg-gray-500 hover:bg-gray-500" : ""
           }`}
         >
           Register
