@@ -100,7 +100,7 @@ const SignInForm = () => {
           Login
         </button>
         {errorMsg !== null && (
-          <span className="text-red-500 font-light">{errorMsg}</span>
+          <p className="text-red-500 font-light pt-2">{errorMsg}</p>
         )}
       </div>
     </form>

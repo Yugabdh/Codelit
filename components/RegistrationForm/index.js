@@ -3,15 +3,24 @@ import useForm from "../../hooks/useForm";
 import validate from "./validationRules";
 
 import { useFirebase } from "react-redux-firebase";
+import { useState } from "react";
 
 const RegistrationForm = () => {
   const firebase = useFirebase();
+  const [errorMsg, setErrorMsg] = useState(null);
 
   const register = () => {
+    setErrorMsg(null);
     let email = values.email.trim();
     let password = values.password.trim();
     let username = values.fullName.trim();
-    firebase.createUser({ email, password }, { username, email });
+    firebase
+      .createUser({ email, password }, { username, email })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMsg(errorMessage.split(":")[1].split("(")[0].trim());
+      });
     setIsSubmitting(false);
   };
 
@@ -95,6 +104,9 @@ const RegistrationForm = () => {
         >
           Register
         </button>
+        {errorMsg !== null && (
+          <p className="text-red-500 font-light pt-2">{errorMsg}</p>
+        )}
       </div>
     </form>
   );
