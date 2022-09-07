@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
-import { useSelector } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -10,9 +10,9 @@ function classNames(...classes) {
 
 const ProfileDropDown = () => {
   const firebase = useFirebase();
+
   const signOut = async () => {
     const auth = firebase.auth();
-    console.log(auth);
     auth.signOut();
   };
 
@@ -42,15 +42,16 @@ const ProfileDropDown = () => {
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-bg-medium ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Menu.Item>
             {({ active }) => (
-              <a
-                href="#"
-                className={classNames(
-                  active ? "bg-bg-faint" : "",
-                  "block px-4 py-2 text-sm text-white"
-                )}
-              >
-                Your Profile
-              </a>
+              <Link href="/profile" className="">
+                <a
+                  className={classNames(
+                    active ? "bg-bg-faint" : "",
+                    "block px-4 py-2 text-sm text-white hover:bg-bg-faint"
+                  )}
+                >
+                  Your Profile
+                </a>
+              </Link>
             )}
           </Menu.Item>
           <Menu.Item>

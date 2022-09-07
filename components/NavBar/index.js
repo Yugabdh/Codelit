@@ -17,7 +17,7 @@ const navigationNullAuth = [
 ];
 
 const navigationAuth = [
-  { name: "Dashboard", href: "/Dashboard" },
+  { name: "Dashboard", href: "/dashboard" },
   { name: "Courses", href: "/courses" },
 ];
 

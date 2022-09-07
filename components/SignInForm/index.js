@@ -5,10 +5,12 @@ import validate from "./validationRules";
 
 import { useFirebase } from "react-redux-firebase";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const SignInForm = () => {
   const firebase = useFirebase();
   const [errorMsg, setErrorMsg] = useState(null);
+  const router = useRouter();
 
   const login = () => {
     setErrorMsg(null);
@@ -19,6 +21,9 @@ const SignInForm = () => {
       .login({
         email,
         password,
+      })
+      .then(() => {
+        router.push("/dashboard");
       })
       .catch((error) => {
         const errorCode = error.code;

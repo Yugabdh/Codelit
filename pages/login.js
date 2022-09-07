@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useFirebase } from "react-redux-firebase";
 
 import { BsGoogle } from "react-icons/bs";
@@ -8,14 +9,18 @@ import { BsGoogle } from "react-icons/bs";
 import SignInForm from "../components/SignInForm";
 
 export default function Login() {
+  const router = useRouter();
   const firebase = useFirebase();
 
   function loginWithGoogle() {
     const result = firebase
-      .login({ provider: "google", type: "redirect" })
+      .login({ provider: "google", type: "popup" })
+      .then((user) => {
+        router.push("/dashboard");
+      })
       .catch((err) => {
         console.error(err);
-      })
+      });
     return result;
   }
 

@@ -4,10 +4,12 @@ import validate from "./validationRules";
 
 import { useFirebase } from "react-redux-firebase";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const RegistrationForm = () => {
   const firebase = useFirebase();
   const [errorMsg, setErrorMsg] = useState(null);
+  const router = useRouter();
 
   const register = () => {
     setErrorMsg(null);
@@ -16,6 +18,9 @@ const RegistrationForm = () => {
     let username = values.fullName.trim();
     firebase
       .createUser({ email, password }, { username, email })
+      .then(() => {
+        router.push("/dashboard");
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
