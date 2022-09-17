@@ -17,7 +17,7 @@ const profile = () => {
     return <Loader />;
   }
 
-  return <div>profile</div>;
+  return <div>Test</div>;
 };
 
 export default profile;
