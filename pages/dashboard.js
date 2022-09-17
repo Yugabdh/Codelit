@@ -9,7 +9,6 @@ import Head from "next/head";
 const dashboard = () => {
   const auth = useSelector((state) => state.firebase.auth);
   const router = useRouter();
-  console.log(auth)
 
   // Listen for changes on loading and authUser, redirect if needed
   useEffect(() => {
